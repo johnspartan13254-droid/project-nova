@@ -1,0 +1,215 @@
+/* ============================================
+   KUTULU REALM — INDIGO RESONANCE SYSTEM
+   ============================================ */
+
+  /*Kutulu*/
+  
+   
+h2{
+	color: silver;
+}	
+
+
+
+/* Base card styling for Kutulu components */
+.kutulu-card {
+    width: 320px;
+    padding: 22px;
+    margin: 25px auto;
+    border-radius: 14px;
+    background: rgba(12, 0, 25, 0.65);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(75, 0, 130, 0.45);
+    box-shadow: 0 0 14px rgba(75, 0, 130, 0.35);
+    transition: 0.35s ease;
+    overflow: hidden;
+}
+
+/* Hover resonance */
+.kutulu-card:hover {
+    box-shadow: 0 0 28px rgba(75, 0, 130, 0.75);
+    border-color: rgba(120, 0, 180, 0.9);
+    transform: translateY(-4px);
+	--core: #1E7F4A;
+    --material: #7A6A55;
+    --accent-1: #A03CFF;
+    --accent-2: #EDEAE4;   
+}
+
+/* Kutulu images */
+.kutulu-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 12px rgba(75, 0, 130, 0.4);
+	transform: translateY(250px);
+}
+
+/* Title styling */
+.kutulu-card h3 {
+    font-size: 1.5rem;
+    color: #c8a8ff;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 6px rgba(75, 0, 130, 0.8);
+}
+
+/* Text fragments (p1–p5 dream syntax) */
+.kutulu-card p1,
+.kutulu-card p2,
+.kutulu-card p3,
+.kutulu-card p4,
+.kutulu-card p5 {
+    display: block;
+    margin: 6px 0;
+    color: #e6d9ff;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.45;
+    opacity: 0.9;
+}
+
+.kutulu-card p1 { font-size: 1.2rem; font-weight: 600; color: #d8b4ff; }
+.kutulu-card p2 { font-size: 1rem; }
+.kutulu-card p3 { font-size: 0.95rem; opacity: 0.85; }
+.kutulu-card p4 { font-size: 0.9rem; opacity: 0.8; }
+.kutulu-card p5 { font-size: 0.85rem; opacity: 0.75; }
+
+.core-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.realm-core-button {
+    transform: translateY(50px);
+}
+
+
+
+/* ============================================
+   RESONANCE PULSE ANIMATION (optional)
+   ============================================ */
+
+@keyframes kutuluResonance {
+    0%   { box-shadow: 0 0 12px rgba(75,0,130,0.4); }
+    50%  { box-shadow: 0 0 28px rgba(120,0,180,0.9); }
+    100% { box-shadow: 0 0 12px rgba(75,0,130,0.4); }
+}
+
+.kutulu-resonance {
+    animation: kutuluResonance 3.8s ease-in-out infinite;
+}
+
+
+/* --- Kutulu Glow Textbox --- */
+.glow-box {
+  background: #0a0f14;                 /* deep abyss */
+  color: #b8faff;                      /* soft cyan text */
+  border: 2px solid #00eaff;           /* cyan outline */
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+
+  /* subtle inner glow */
+  box-shadow:
+    0 0 6px #00eaff,
+    inset 0 0 8px #0d1b2a;
+
+  /* smooth transition for hover/focus */
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* --- Glow on focus: cyan → indigo gradient pulse --- */
+.glow-box:focus {
+  outline: none;
+  border-color: #6a5cff;               /* indigo edge */
+  box-shadow:
+    0 0 12px #00eaff,
+    0 0 24px #6a5cff,
+    inset 0 0 12px #0d1b2a;
+  animation: kutuluPulse 2.4s ease-in-out infinite;
+}
+
+/* --- Pulse animation --- */
+@keyframes kutuluPulse {
+  0% {
+    box-shadow:
+      0 0 12px #00eaff,
+      0 0 24px #6a5cff,
+      inset 0 0 12px #0d1b2a;
+  }
+  50% {
+    box-shadow:
+      0 0 20px #6a5cff,
+      0 0 40px #00eaff,
+      inset 0 0 18px #0d1b2a;
+  }
+  100% {
+    box-shadow:
+      0 0 12px #00eaff,
+      0 0 24px #6a5cff,
+      inset 0 0 12px #0d1b2a;
+  }
+}
+
+.kutulu-panel {
+  width: 100%;
+  min-height: 300px;                 /* stretch the panel */
+  display: flex;
+  justify-content: center;           /* center horizontally */
+  align-items: center;               /* center vertically */
+  background: linear-gradient(
+    180deg,
+    #02060a 0%,
+    #07111d 40%,
+    #0a0f14 100%
+  );                                 /* abyssal gradient */
+  padding: 40px;
+}
+
+.glow-text {
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    #00eaff 25%,   /* cyan */
+    #6a5cff 50%,   /* indigo core */
+    #00eaff 75%    /* cyan return */
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+
+  /* ambient glow */
+  text-shadow:
+    0 0 8px #00eaff,
+    0 0 16px #6a5cff,
+    0 0 24px #00eaff;
+
+  /* optional: gentle shimmer */
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    text-shadow:
+      0 0 8px #00eaff,
+      0 0 16px #6a5cff,
+      0 0 24px #00eaff;
+  }
+  50% {
+    text-shadow:
+      0 0 14px #6a5cff,
+      0 0 28px #00eaff,
+      0 0 40px #6a5cff;
+  }
+  100% {
+    text-shadow:
+      0 0 8px #00eaff,
+      0 0 16px #6a5cff,
+      0 0 24px #00eaff;
+  }
+}
+
+
+
+

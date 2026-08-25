@@ -1,0 +1,124 @@
+/* ============================================
+   INDEX — COSMIC HUB LAYOUT
+   ============================================ */
+   
+/* Page container */
+.index-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Hero section */
+.index-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.index-hero h1 {
+    font-size: 2.4rem;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.index-hero p {
+    font-size: 1.1rem;
+    color: #d0d0ff;
+    opacity: 0.85;
+}
+
+/* Realm grid */
+.realm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Realm tile wrapper */
+.realm-tile {
+    transition: transform 0.3s ease;
+}
+
+.realm-tile:hover {
+    transform: translateY(-6px);
+}
+
+.realm-nav .current {
+  color: #00eaff;
+  opacity: 0.7;
+  cursor: default;
+  text-shadow: 0 0 8px #00eaff;
+}
+
+/*NAVAGATION REALM*/
+
+.realm-nav {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.realm-nav a {
+  color: #00eaff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.realm-nav a:hover {
+  text-shadow: 0 0 8px #00eaff;
+}
+
+/* Current page indicator */
+.realm-nav .current {
+  color: #6a5cff;
+  opacity: 0.7;
+  cursor: default;
+  text-shadow: 0 0 8px #6a5cff;
+}
+ 
+
+.gradient-cyan-indigo {
+  background: linear-gradient(
+    90deg,
+    #00eaff 25%,
+    #6a5cff 50%,
+    #00eaff 75%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.glow-cyan {
+  text-shadow: 0 0 8px #00eaff;
+}
+
+.glow-indigo {
+  text-shadow: 0 0 8px #6a5cff;
+}
+
+.glow-ambient {
+  animation: ambientGlow 4s ease-in-out infinite;
+}
+
+@keyframes ambientGlow {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+
+/*Panels*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-panel {
+  width: 100%;
+  min-height: 300px;
+  padding: 40px;
+}
+

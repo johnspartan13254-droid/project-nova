@@ -1,0 +1,89 @@
+/* ============================================
+   PROJECT CARD BASE STRUCTURE
+   ============================================ */
+
+.project-tile {
+    width: 300px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    background: rgba(10, 10, 20, 0.6);
+    backdrop-filter: blur(6px);
+    text-align: center;
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.project-tile img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-tile h3 {
+    margin: 10px 0;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+
+/* ============================================
+   REALM-SPECIFIC HIGHLIGHTS
+   ============================================ */
+
+/* Nova – Cyan */
+.project-tile.nova {
+    border: 1px solid rgba(0,255,255,0.4);
+}
+.project-tile.nova:hover {
+    box-shadow: 0 0 20px rgba(0,255,255,0.6);
+    border-color: rgba(0,255,255,0.8);
+}
+
+/* Kutulu – Indigo */
+.project-tile.kutulu {
+    border: 1px solid rgba(75,0,130,0.4);
+}
+.project-tile.kutulu:hover {
+    box-shadow: 0 0 20px rgba(75,0,130,0.6);
+    border-color: rgba(75,0,130,0.8);
+}
+
+/* Yggdrasil – Emerald */
+.project-tile.yggdrasil {
+    border: 1px solid rgba(0,255,128,0.4);
+}
+.project-tile.yggdrasil:hover {
+    box-shadow: 0 0 20px rgba(0,255,128,0.6);
+    border-color: rgba(0,255,128,0.8);
+}
+
+/* Daydream – Lavender */
+.project-tile.daydream {
+    border: 1px solid rgba(200,160,255,0.4);
+}
+.project-tile.daydream:hover {
+    box-shadow: 0 0 20px rgba(200,160,255,0.6);
+    border-color: rgba(200,160,255,0.8);
+}
+
+
+/* ============================================
+   TEXT FRAGMENTS (your p1–p5 dream syntax)
+   ============================================ */
+
+p1, p2, p3, p4, p5 {
+    display: block;
+    margin: 6px 0;
+    color: #e0e0ff;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+p1 { font-size: 1.2rem; font-weight: 600; }
+p2 { font-size: 1rem; }
+p3 { font-size: 0.95rem; opacity: 0.85; }
+p4 { font-size: 0.9rem; opacity: 0.8; }
+p5 { font-size: 0.85rem; opacity: 0.75; }

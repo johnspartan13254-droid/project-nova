@@ -1,0 +1,89 @@
+/* ============================================
+   NOVA REALM — CYAN SIGNAL SYSTEM
+   ============================================ */
+   
+   
+h1 {
+	Color: Cyan;
+}	
+
+p {
+	Color: White;
+	
+	/*Nova*/
+ --core: #2FD8FF;
+ --material: #6E6F75;
+ --accent-1: #4B3CFF;
+ --accent-2: #F2F7FF;
+	
+/* Base card styling for Nova components */
+.nova-card {
+    width: 320px;
+    padding: 22px;
+    margin: 25px auto;
+    border-radius: 14px;
+    background: rgba(0, 20, 30, 0.65);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 255, 255, 0.45);
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.35);
+    transition: 0.35s ease;
+    overflow: hidden;
+}
+
+/* Hover signal flare */
+.nova-card:hover {
+    box-shadow: 0 0 28px rgba(0, 255, 255, 0.75);
+    border-color: rgba(0, 255, 255, 0.9);
+    transform: translateY(-4px);
+}
+
+/* Nova images */
+.nova-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+}
+
+/* Title styling */
+.nova-card h3 {
+    font-size: 1.5rem;
+    color: #b8ffff;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.8);
+}
+
+/* Text fragments (p1–p5 dream syntax) */
+.nova-card p1,
+.nova-card p2,
+.nova-card p3,
+.nova-card p4,
+.nova-card p5 {
+    display: block;
+    margin: 6px 0;
+    color: #e0ffff;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.45;
+    opacity: 0.9;
+}
+
+.nova-card p1 { font-size: 1.2rem; font-weight: 600; color: #c8ffff; }
+.nova-card p2 { font-size: 1rem; }
+.nova-card p3 { font-size: 0.95rem; opacity: 0.85; }
+.nova-card p4 { font-size: 0.9rem; opacity: 0.8; }
+.nova-card p5 { font-size: 0.85rem; opacity: 0.75; }
+
+/* ============================================
+   CYAN SIGNAL BEAM ANIMATION (optional)
+   ============================================ */
+
+@keyframes novaSignal {
+    0%   { box-shadow: 0 0 12px rgba(0,255,255,0.4); }
+    50%  { box-shadow: 0 0 28px rgba(0,255,255,0.9); }
+    100% { box-shadow: 0 0 12px rgba(0,255,255,0.4); }
+}
+
+.nova-signal {
+    animation: novaSignal 3.2s ease-in-out infinite;
+}
