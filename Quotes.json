@@ -1,0 +1,64 @@
+[
+  {
+    "quote": "The best way to predict the future is to create it.",
+    "author": "Abraham Lincoln",
+    "link": "https://en.wikipedia.org/wiki/Abraham_Lincoln",
+    "category": "philosophy",
+    "tone": "inspirational",
+    "theme": "light"
+  },
+  
+  {
+    "quote": "Everything in moderation, including moderation.",
+    "author": "Oscar Wilde",
+    "link": "https://en.wikipedia.org/wiki/Oscar_Wilde",
+    "category": "philosophy",
+    "tone": "witty",
+    "theme": "dark"
+  }
+  
+  {
+    "quote": "Strive not to be a success, but rather to be of value.",
+    "author": "Albert Einstein",
+	"link": "https://en.wikipedia.org/wiki/Albert_Einstein",
+	"category": "philosophy",
+	"tone": "inspirational",
+	"theme": "light"   
+  },
+  
+  {
+    "quote": "Gaming is for everyone. No one should feel like gaming is a place they don’t belong.",
+    "author": "Phil Spencer",
+    "link": "https://en.wikipedia.org/wiki/Phil_Spencer_(business_executive)",
+	"category": "innovation",
+	"tone": "inspirational",
+	"theme": "light" 
+  },
+  
+  {
+    "quote": "The best ideas start as conversations.",
+    "author": "Sam Altman",
+	"link": "https://en.wikipedia.org/wiki/Sam_Altman",
+	"category": "innovation",
+	"tone": "inspirational",
+	"theme": "light" 
+  },
+  
+  {
+    "quote": "We are a way for the cosmos to know itself.",
+    "author": "Paul M. Sutter",
+    "link": "https://en.wikipedia.org/wiki/Paul_M._Sutter",
+	"category": "philosophy",
+	"tone": "inspirational",
+	"theme": "dark"
+  },
+  
+  {
+    "quote": "Music has the power to transcend time and space, connecting souls across the universe.",
+    "author": "Motoi Sakuraba",
+    "link": "https://en.wikipedia.org/wiki/Motoi_Sakuraba",
+	"tone": "inspirational",
+	"category": "philosophy",
+	"theme": "dark"
+  }
+]

@@ -2,75 +2,21 @@
    PROJECT NOVA – GLOBAL STYLES
    ========================================= */
 
-/* =========================================
-   GLOBAL RESET & BASE
-   ========================================= */
-
-* {
-    margin: 0;
-    padding: 0;
+/* Global reset-ish */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
+/* Base Styles */
 body {
-    background-color: #0a0a14; /* deeper cosmic navy */
-    color: #e0faff;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0e0e1a;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
     line-height: 1.6;
-    padding: 2rem;
-}
-
-p {
-	color: navy;
-	text-align: center;
-}
-
-p1 {
-    color: cyan;
-	text-align: center;
-}
-
-p2 {
-	color: indigo;
-	text-align: center;
-}
-
-p3 {
-	color: white;
-	text-align: center;
-}
-
-p4 {
-	color: gray;
-	text-align: center;
-}
-
-p5 {
-	color: silver;
-	text-align: center;
-}
-
-h1 {
-	color: white;
-	text-align: center;
-}
-
-h2 {
-	color: cyan;
-	text-align: center;
-}
-
-/* =========================================
-   NEON GLOW VARIABLES
-   ========================================= */
-
-:root {
-    --cyan: #66ffff;
-    --cyan-soft: #a8ffff;
-    --cyan-glow: #66ffffaa;
-    --navy: #0a0a14;
-    --navy-light: #1c1c2c;
-    --border: #333;
 }
 
 
@@ -78,54 +24,86 @@ h2 {
    HEADER & NAVIGATION
    ========================================= */
 
-/* =========================================
-   HEADER & NAVIGATION
-   ========================================= */
-
-/* =========================================
-   HEADER & NAVIGATION
-   ========================================= */
-
-.header h3 {
-    background-color: #1c1c2c;
-    text-align: center;
-    padding: 2rem 1rem;
-    border-bottom: 1px solid #333;
-    color: cyan; /* FIXED */
-}
-
-.header h2 {
-    margin: 0 0 0.5rem;
-    font-size: 2.5rem;
-    color: cyan; /* FIXED */
-}
-
-.p {
-    font-size: 1.2rem;
-    color: cyan; /* FIXED */
-}
-
-
-/* =========================================
-   NAVIGATION
-   ========================================= */
-
-nav {
-    margin-top: 1rem;
+header {
+    padding: 1rem 2rem;
     text-align: center;
 }
 
-nav a {
-    color: #66cccc;
-    margin: 0 12px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.2s ease;
+header h1 {
+    font-size: 2rem;        /* shrink name */
+    margin-bottom: 0.3rem;
+}
+
+header p {
+    font-size: 1rem;        /* shrink subtitle */
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+header nav a {
+    font-size: 0.9rem;      /* shrink nav links */
+    margin: 0 0.5rem;
 }
 
 nav a:hover {
-    text-decoration: underline;
-    color: cyan;
+    color: #66cccc;
+    text-shadow: 0 0 8px #66cccc;
+}
+
+
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    margin: 40px auto;
+    max-width: 1400px;
+}
+
+.project-tile {
+
+    height: 300px;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+
+    transition: transform .3s ease;
+}
+
+.project-tile:hover {
+    transform: scale(1.03);
+}
+
+.project-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
+#project-yggdrasil {
+    background-image: url("../assets/images/yggdrasil.jpeg");
+}
+
+#project-kutulu {
+    background-image: url("../assets/images/kutulu.png");
+}
+
+#project-daydream {
+    background-image: url("../assets/images/project-daydream.png");
+}
+
+#project-nova {
+    background-image: url("../assets/images/projectNova.png");
 }
 
 
@@ -136,26 +114,38 @@ nav a:hover {
 
 .hero {
     text-align: center;
-    padding: 4rem 2rem;
-    background: url('../images/project-nova-banner-small.png') no-repeat center center / cover;
+    padding: 2rem 1.5rem;   /* reduced from 4rem 2rem */
+    background-image: url('../images/project-nova-banner-small.png') no-repeat center center / cover;
     color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     transition: background 0.5s ease-in-out;
 }
 
+
+.hero-image {
+    display: block;
+    margin: 2rem auto;
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+}
+
+
 .hero-cta,
 .hero button {
     margin-top: 1rem;
-    padding: 0.8rem 1.5rem;
     background: #444;
     border: none;
     color: #fff;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: .9rem;
     cursor: pointer;
     transition: background 0.3s;
+    font-size: 0.9rem;
+    padding: 1rem .5rem;
 }
+
 
 .hero-cta:hover,
 .hero button:hover {
@@ -166,6 +156,11 @@ nav a:hover {
     margin-top: 0.5rem;
     font-size: 1.05rem;
     opacity: 0.9;
+}
+
+.hero h2 {
+    font-size: 1.8rem;   /* smaller than default */
+    margin-bottom: 1rem;
 }
 
 
@@ -186,9 +181,8 @@ nav a:hover {
 }
 
 main section {
-    padding: 1rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    width: 220px;
+    height: 320px;
 }
 
 h2 {
@@ -205,434 +199,16 @@ ul li {
     margin-bottom: 0.5rem;
 }
 
-
-/* =========================================
-   CAROUSEL
-   ========================================= */
-
-/* Carousel core */
-.carousel {
-    position: relative;
-    max-width: 960px;
-    margin: 2rem auto;
-    padding: 1.5rem 1rem 3rem;
-    border-radius: 12px;
-    overflow: hidden;
-    background: radial-gradient(circle at top, #2a2a3a 0%, #111 60%, #050509 100%);
-}
-
-/* Caption under carousel */
-.carousel-caption {
-  margin-top: 1.5rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  min-height: 4.5rem;      /* reserve space so layout doesn't jump */
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.carousel-caption.fade-out {
-  opacity: 0;
-}
-
-.carousel-caption.fade-in {
-  opacity: 1;
-}
-
-.carousel-caption {
-  text-align: center;
-  transition: opacity 0.5s ease;
-}
-.carousel-caption.hidden {
-  opacity: 0;
-}
-.carousel-caption.visible {
-  opacity: 1;
-}
-
-
-/* Individual slide backgrounds */
-.carousel .slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transform: translateX(0);
-    transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-}
-
-/* 1: Project Nova */
-.carousel .slide:nth-child(1) {
-    background-image: url("../images/project-nova-banner-small.png")
-}
-
-/* 2: Project Goldstream */
-.carousel .slide:nth-child(2) {
-    background-image: url("../images/project-goldstream-banner.png");
-}
-
-/* 3: VoidSaga */
-.carousel .slide:nth-child(3) {
-    background-image: url("../images/project-VoidSaga-banner-small.png");
-}
-
-/* 4: Yggdrasil */
-.carousel .slide:nth-child(4) {
-    background-image: url("../images/project-yggdrasil-banner-small.png");
-}
-
-/* States (used by JS) */
-.carousel .slide.active {
-    opacity: 1;
-    transform: translateX(0);
-    z-index: 3;
-}
-.carousel .slide.right {
-    opacity: 0;
-    transform: translateX(100%);
-    z-index: 2;
-}
-.carousel .slide.left {
-    opacity: 0;
-    transform: translateX(-100%);
-    z-index: 2;
-}
-.carousel .slide.hidden {
-    opacity: 0;
-    transform: translateX(0);
-    z-index: 1;
-}
-
-
-
-/* Base slide style */
-.slide {
-    position: absolute;
-    width: 300px;
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    transition: all 0.5s ease;
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-
-
-/* Assign images by index  
-   CSS file: assets/styles/styles.css  
-   Images:   assets/images/*.png  
-   Path:     ../images/filename.png  
-*/
-.slide:nth-child(1) {
-    background-image: url("../images/project-yggdrasil.jpeg");
-}
-
-.slide:nth-child(2) {
-    background-image: url("../images/kutulu.png");
-}
-
-.slide:nth-child(3) {
-    background-image: url("../images/project-daydream.png");
-}
-
-.slide:nth-child(4) {
-    background-image: url("../images/projectNova-banner-small.png");
-}
-
-
-
-
-
-/* State-based animation */
-.slide.active {
-    opacity: 1;
-    transform: scale(1) translateX(0);
-    z-index: 3;
-}
-
-.slide.left {
-    opacity: 1;
-    transform: scale(0.9) translateX(-200px);
-    z-index: 2;
-}
-
-.slide.right {
-    opacity: 1;
-    transform: scale(0.9) translateX(200px);
-    z-index: 2;
-}
-
-.slide.hidden {
-    opacity: 0;
-    z-index: 1;
-}
-
-/* Dots */
-.carousel-dots {
-    position: absolute;
-    bottom: -2.5rem;
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    width: 100%;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    background: transparent;
-    cursor: pointer;
-    padding: 0;
-    outline: none;
-    transition: transform 0.2s, background 0.2s;
-}
-
-.dot.active {
-    background: #fff;
-    transform: scale(1.2);
-}
-
-.dot:focus-visible {
-    outline: 2px solid #00c8ff;
-    outline-offset: 2px;
-}
-
-
-/* =========================================
-   ACCORDION
-   ========================================= */
-
-.accordion {
-    margin: 1rem 0;
-    border: 1px solid #333;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.accordion-toggle {
-    width: 100%;
-    background: #1c1c2c;
-    color: #66cccc;
-    padding: 1rem;
-    text-align: left;
-    font-size: 1.1rem;
-    border: none;
-    cursor: pointer;
-}
-
-.accordion-toggle:hover {
-    background: #333;
-}
-
-.accordion-content {
-    display: none;
-    padding: 1rem;
-    background: #111;
-}
-
-.accordion-content p {
-    margin-bottom: 1rem;
-}
-
-.accordion.open .accordion-content {
-    display: block;
-}
-
-
 /* =========================================
    PROJECTS GRID – FLIP CARDS
    ========================================= */
 
-.project-tile p,
-.project-description {
-    color: cyan;
-}
-   
-/* =========================================
-   PROJECT GRID
-   ========================================= */
-
-.project-grid {
-    display: flex;
-    flex-direction: column;
+   .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 220px);
+    justify-content: center;
     gap: 2rem;
-    margin-top: 2rem;
-}
-
-.project-tile {
-    background-color: #1c1c2c;
-    padding: 1.5rem;
-    border: 1px solid #333;
-    border-radius: 8px;
-    transition: 0.25s ease;
-}
-
-.project-tile:hover {
-    border-color: #66cccc;
-    box-shadow: 0 0 12px #66cccc55;
-}
-
-.project-tile h2 {
-    color: #a8ffff;
-    margin-bottom: 0.5rem;
-}
-
-.project-tile p {
-    background-color: navy;
-	color: cyan;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-}
-
-.protject-title {
-	background-color: navy;
-	color: cyan;
-}
-
-#project-nova {
-    background-image: url("../images/projectNova.png");
-}
-
-#project-kutulu {
-    background-image: url("../images/kutulu.png");
-}
-
-#project-yggdrasil {
-    background-image: url("../images/yggdrasil.jpeg");
-}
-
-#project-daydream {
-    background-image: url("../images/project-daydream.png");
-}
-
-.flip-card {
-    width: 300px;
-    height: 400px;
-    perspective: 1000px;
-}
-
-.flip-card-inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.flip-card-back {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front.daydream {
-    box-shadow: 0 0 20px rgba(200,160,255,0.6);
-}
-
-.flip-card-back.daydream {
-    box-shadow: 0 0 20px rgba(200,160,255,0.6);
-}
-
-
-.flip-card {
-    width: 300px;
-    height: 400px;
-    perspective: 1000px;
-}
-
-.flip-card-inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;   /* THIS is the missing piece */
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.flip-card-back {
-    transform: rotateY(180deg);
-}
-
-
-
-
-
-
-
-
-.flip-card {
-    width: 300px;
-    height: 400px;
-    perspective: 1000px;
-}
-
-.flip-card-inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 12px;
-    padding: 20px;
-}
-
-/* BACK SIDE */
-.flip-card-back {
-    transform: rotateY(180deg);
-}
-
-/* Nova glow */
-.nova {
-    box-shadow: 0 0 20px rgba(0,255,255,0.6);
-}
-
-/* Kutulu glow */
-.kutulu {
-    box-shadow: 0 0 20px rgba(75,0,130,0.6);
+    margin: 3rem auto;
 }
 
 
@@ -702,17 +278,16 @@ footer a:hover {
    RESPONSIVE TWEAKS
    ========================================= */
 
-@media (max-width: 600px) {
-    .project-nova-header {
-        height: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-
-    .project-nova-header h1 {
-        font-size: 2rem;
-    }
-
-    .project-nova-header p {
-        font-size: 1.2rem;
+@media (max-width: 1000px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
+
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
