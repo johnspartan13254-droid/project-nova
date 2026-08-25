@@ -1,0 +1,91 @@
+/* ================================
+   GLOBAL BASE — CHARCOAL SYSTEM
+   ================================ */
+
+:root {
+  --bg-charcoal: #1a1a1a;
+  --text-light: #e6e6e6;
+
+  --heading-cyan: #00e5ff;
+  --nav-lavender: #c7a6ff;
+
+  --btn-lava: #ff5a1f;
+  --btn-lava-dark: #cc4719;
+
+  --hover-neon: #39ff14;
+}
+
+/* Reset + Base */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-charcoal);
+  color: var(--text-light);
+  font-family: system-ui, sans-serif;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-cyan);
+  margin-top: 0;
+}
+
+/* Navigation */
+nav {
+  background: var(--nav-lavender);
+  color: #1a1a1a;
+  padding: 0.75rem 1rem;
+}
+
+nav a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--hover-neon);
+}
+
+/* Buttons */
+button,
+.btn {
+  background: var(--btn-lava);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--btn-lava-dark);
+  color: var(--hover-neon);
+}
+
+/* Callouts */
+.callout {
+  background: var(--btn-lava);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.callout:hover {
+  background: var(--btn-lava-dark);
+  color: var(--hover-neon);
+}
+
+/* Links */
+a {
+  color: var(--heading-cyan);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover-neon);
+}
