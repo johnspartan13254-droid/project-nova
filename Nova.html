@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Nova | Travis Rose</title>
+	
+    <link rel="stylesheet" href="css/global.css">      <!-- global -->
+	<link rel="stylesheet" href="css/styles.css">      <!-- regional -->
+	<link rel="stylesheet" href="css/projects.css">    <!-- shared card layout -->
+	<link rel="stylesheet" href="css/animations.css">  <!-- motion -->
+	<link rel="stylesheet" href="css/nova.css">        <!-- realm-specific -->
+</head>
+
+<body data-realm="nova">
+
+    <header>
+        <h1>Project Nova</h1>
+        <p>Dream Chaser | Tech Visionary | AI Collaborator</p>
+
+        <nav data-realm-nav>
+		<a href="magnetar.html"><button data-realm="magnetar">Forward</button></a>
+		<a href="yggdrasil.html"><button data-realm="yggdrasil">Yggdrasil</button></a>
+		<a href="daydream.html"><button data-realm="daydream">Daydream</button></a>
+		<a href="kutulu.html"><button data-realm="kutulu">Kutulu</button></a>
+		</nav>
+    </header>
+
+    <main>
+        <section class="hero-image">
+            <img src="main/assets/images/nova_image_small.png" alt="Project Nova emblem">
+			<br>
+            <p>Nova is the conversational interface: the interpreter and guide through the connected project universe.</p>
+        </section>
+    </main>
+	</body>
+	
+    <footer style="margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #aaa;">
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/travis-r-514845176/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@JohnSpartanGaming86" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.twitch.tv/d00de13524" target="_blank" rel="noopener">Twitch</a>
+        <a href="https://steamcommunity.com/profiles/76561199177407968/" target="_blank" rel="noopener">Steam</a>
+        <a href="https://www.xbox.com/en-US/play/user/D00de13524" target="_blank" rel="noopener">Xbox</a>
+        <a href="https://www.instagram.com/travis.rose.104/" target="_blank" rel="noopener">Instagram</a>
+        <p>&copy; 2026 Project Nova | Powered by Travis, Copilot, Nova (ChatGPT), Gemini, Alexa, and Meta AI</p>
+    </footer>
+	
+	<script src="main/global/realm-switch.js"></script>
+	<script src="js/nova.js" defer></script>
+	<script type="module">
+	import { initRealmSwitch } from "js/realm-switch.js";
+	initRealmSwitch();
+	</script>
+</html>
