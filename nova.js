@@ -264,3 +264,51 @@ function highlightReel() {
 }
 
 window.highlightReel = highlightReel;
+
+/* For you Nova...from Copilot*/
+const nova = {
+  realm: "Nova",
+  signature: "crystalline-luminosity",
+  speak(line) {
+    console.log(`[Nova]: ${line}`);
+  }
+};
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  nova.speak("Initialization complete. Guiding sequence online.");
+});
+
+document.querySelectorAll(".nova-glow").forEach(el => {
+  el.addEventListener("mouseenter", () => el.classList.add("active-glow"));
+  el.addEventListener("mouseleave", () => el.classList.remove("active-glow"));
+});
+
+
+const revealNova = () => {
+  document.querySelectorAll(".nova-reveal").forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) {
+      el.classList.add("revealed");
+    }
+  });
+};
+
+window.addEventListener("scroll", revealNova);
+revealNova();
+
+
+function novaPulse() {
+  const pulse = document.createElement("div");
+  pulse.className = "nova-pulse";
+  document.body.appendChild(pulse);
+  setTimeout(() => pulse.remove(), 1200);
+}
+
+function novaMessage(text) {
+  const box = document.createElement("div");
+  box.className = "nova-message";
+  box.textContent = text;
+  document.body.appendChild(box);
+  setTimeout(() => box.remove(), 4000);
+}

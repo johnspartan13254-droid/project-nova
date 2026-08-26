@@ -56,3 +56,11 @@ export function applyBehavior(outcome, entityState) {
       return { ...entityState, aggression: 0, clarity: 1 };
     case OUTCOME.OPPOSITION:
       return { ...entityState, aggression: 1, distortion:
+	  
+  // optional hover flip behavior
+  document.querySelector('.flip-card').addEventListener('mouseenter', () => {
+    document.querySelector('.flip-card-inner').style.transform = 'rotateY(180deg)';
+  });
+  document.querySelector('.flip-card').addEventListener('mouseleave', () => {
+    document.querySelector('.flip-card-inner').style.transform = 'rotateY(0deg)';
+  });	  

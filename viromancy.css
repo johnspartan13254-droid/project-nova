@@ -1,0 +1,159 @@
+/* ============================================================
+   VIROMANCY — REACTIVE DISTORTION LAYER (HTML‑Aligned Version)
+   Applies only to .viro elements (currently magnetar2 image)
+   ============================================================ */
+
+:root {
+    --viro-cyan: #4fffe7;
+    --viro-pink: #ff0czb;
+    --viro-green:#3cff8f;
+    --viro-dark: #fffffff;
+    --viro-corrupt: #ff2f4f;
+
+    --viro-speed: 240ms;
+    --viro-distort-speed: 480ms;
+}
+	
+
+/* Body Tags */
+viro-title{
+	color: cyan:
+}
+
+viro-lenses{
+	color: pink;
+}
+
+viro-engine{
+	color: green;
+}
+
+viro-p{
+	color: pink;
+	accent: orange;
+	font-size: 28px;
+}
+
+viro-echo{
+	color: green;
+}
+
+viro-studies{
+	color: cyan;
+}
+
+viro-implications{
+	color: pink;
+}
+
+viro-publish{
+	
+}
+
+/* ------------------------------
+   Base reactive element
+--------------------------------*/
+.viro {
+    position: relative;
+    display: inline-block;
+    transition:
+        transform var(--viro-speed) ease,
+        filter var(--viro-speed) ease;
+    filter: none;
+    transform: translateZ(0); /* GPU stability */
+}
+
+/* ------------------------------
+   Hover-reactive pulse
+--------------------------------*/
+.viro:hover {
+    filter: drop-shadow(0 0 14px var(--viro-cyan));
+    transform: scale(1.04);
+}
+
+/* ------------------------------
+   Corruption state (JS-triggered)
+--------------------------------*/
+.viro.corrupt {
+    filter:
+        hue-rotate(160deg)
+        saturate(2.4)
+        drop-shadow(0 0 22px var(--viro-corrupt));
+    animation: viroCorrupt var(--viro-distort-speed) infinite alternate;
+}
+
+@keyframes viroCorrupt {
+    0% {
+        transform: scale(1) skew(0deg);
+    }
+    50% {
+        transform: scale(1.06) skew(2deg);
+    }
+    100% {
+        transform: scale(0.96) skew(-2deg);
+    }
+}
+
+/* ------------------------------
+   Mutation pulse (JS-triggered)
+--------------------------------*/
+.viro.mutate {
+    animation: viroMutate 1.2s infinite ease-in-out;
+}
+
+@keyframes viroMutate {
+    0% {
+        filter: drop-shadow(0 0 6px var(--viro-green));
+    }
+    50% {
+        filter: drop-shadow(0 0 18px var(--viro-pink));
+    }
+    100% {
+        filter: drop-shadow(0 0 6px var(--viro-green));
+    }
+}
+
+/* ------------------------------
+   Clean state (reset)
+--------------------------------*/
+.viro.clean {
+    filter: none !important;
+    animation: none !important;
+    transform: none !important;
+}
+
+/* VIROMANCY – Pink */
+.project-tile.nova {
+    border: 1px solid rgba(255,192,203,0,0.4);
+}
+.project-tile.nova:hover {
+    box-shadow: 0 0 20px rgba(255,165,0,,0.6);
+    border-color: rgba(0,255,255,0.8);
+}
+
+/* Kutulu – Indigo */
+.project-tile.kutulu {
+    border: 1px solid rgba(75,0,130,0.4);
+}
+.project-tile.kutulu:hover {
+    box-shadow: 0 0 20px rgba(75,0,130,0.6);
+    border-color: rgba(75,0,130,0.8);
+}
+
+/* Yggdrasil – Emerald */
+.project-tile.yggdrasil {
+    border: 1px solid rgba(0,255,128,0.4);
+}
+.project-tile.yggdrasil:hover {
+    box-shadow: 0 0 20px rgba(0,255,128,0.6);
+    border-color: rgba(0,255,128,0.8);
+}
+
+/* Daydream – Lavender */
+.project-tile.daydream {
+    border: 1px solid rgba(200,160,255,0.4);
+}
+.project-tile.daydream:hover {
+    box-shadow: 0 0 20px rgba(200,160,255,0.6);
+    border-color: rgba(200,160,255,0.8);
+}

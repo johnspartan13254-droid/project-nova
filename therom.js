@@ -2,11 +2,9 @@
    DAYDREAM REALM — LAVENDER DRIFTSPACE ENGINE
    ============================================ */
 
-const quoteSection = "json/quotes.json"  
-   
 /* Soft fade-in for all Daydream tiles */
 document.addEventListener("DOMContentLoaded", () => {
-    const tiles = document.querySelectorAll("title");
+    const tiles = document.querySelectorAll(".project-tile.daydream");
 
     tiles.forEach(tile => {
         tile.style.opacity = 0;
@@ -22,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* Shimmer on hover */
-const daydreamTiles = document.querySelectorAll("title");
+const daydreamTiles = document.querySelectorAll(".project-tile.daydream");
 
 daydreamTiles.forEach(tile => {
     tile.addEventListener("mouseenter", () => {
