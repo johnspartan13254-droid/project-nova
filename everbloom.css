@@ -1,0 +1,511 @@
+/* ============================================================
+   EVERBLOOM.CSS — LIVING DESIGN AESTHETIC
+   Loam | Bark | Moss | Fern | New Leaf | Sage | Rainwater
+   Lavender | Petal Pink | Pollen Gold | Sunlit Cream | Berry
+   Grown | Observant | Restorative | Evolving
+
+   Load after regional.css, projects.css, styles.css, and
+   animations.css so Everbloom receives the final word.
+   ============================================================ */
+
+/* ------------------------------
+   TWELVE-COLOR ECOSYSTEM
+--------------------------------*/
+:root {
+    --ever-loam: #241a14;
+    --ever-bark: #5a3e2b;
+    --ever-moss: #596b3f;
+    --ever-fern: #2f6b45;
+    --ever-new-leaf: #79a857;
+    --ever-sage: #a8b89a;
+    --ever-rainwater: #78aeb5;
+    --ever-lavender: #b7a5c8;
+    --ever-petal: #e4a6ad;
+    --ever-pollen: #e3bd57;
+    --ever-cream: #fff8df;
+    --ever-berry: #9b3f5d;
+
+    --ever-bg: rgba(36, 26, 20, 0.92);
+    --ever-panel: rgba(47, 107, 69, 0.18);
+    --ever-border: rgba(168, 184, 154, 0.48);
+    --ever-shadow: rgba(36, 26, 20, 0.48);
+    --ever-glow: rgba(121, 168, 87, 0.4);
+
+    /* Recolor the shared Trinity components. */
+    --tri-cyan: var(--ever-rainwater);
+    --tri-indigo: var(--ever-lavender);
+    --tri-emerald: var(--ever-new-leaf);
+    --tri-lavender: var(--ever-petal);
+    --tri-warn: var(--ever-pollen);
+    --tri-error: var(--ever-berry);
+    --tri-bg: var(--ever-bg);
+    --tri-border: var(--ever-border);
+    --tri-pulse-speed: 4s;
+    --tri-fade-speed: 2.4s;
+}
+
+/* ------------------------------
+   LIVING PAGE FOUNDATION
+--------------------------------*/
+body.realm-everbloom {
+    min-height: 100vh;
+    color: var(--ever-cream);
+    background-color: var(--ever-loam);
+    background-image:
+        radial-gradient(
+            circle at 14% 10%,
+            rgba(121, 168, 87, 0.26),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 86% 32%,
+            rgba(183, 165, 200, 0.18),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 55% 76%,
+            rgba(120, 174, 181, 0.16),
+            transparent 30%
+        ),
+        linear-gradient(
+            155deg,
+            var(--ever-loam) 0%,
+            #263522 48%,
+            #193729 100%
+        );
+    background-attachment: fixed;
+}
+
+main {
+    overflow: hidden;
+    color: var(--ever-cream);
+}
+
+main p,
+main li {
+    color: var(--ever-cream);
+    line-height: 1.72;
+}
+
+main strong {
+    color: var(--ever-pollen);
+}
+
+/* ------------------------------
+   HEADER AND NAVIGATION
+--------------------------------*/
+.realm-header {
+    position: relative;
+    z-index: 10;
+    color: var(--ever-cream);
+    background: rgba(36, 26, 20, 0.88);
+    border-bottom: 2px solid var(--ever-new-leaf);
+    box-shadow: 0 5px 20px var(--ever-shadow);
+    backdrop-filter: blur(9px);
+}
+
+.realm-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.75rem 1rem;
+}
+
+.realm-nav a {
+    padding: 0.55rem 0.85rem;
+    color: var(--ever-cream);
+    border-radius: 999px;
+    text-decoration-color: var(--ever-sage);
+    transition:
+        color 220ms ease,
+        background-color 220ms ease,
+        box-shadow 220ms ease;
+}
+
+.realm-nav a:hover,
+.realm-nav a:focus-visible,
+.realm-nav a[aria-current="page"] {
+    color: var(--ever-loam);
+    background-color: var(--ever-new-leaf);
+    box-shadow: 0 0 14px var(--ever-glow);
+}
+
+/* ------------------------------
+   EVERBLOOM BANNER
+--------------------------------*/
+.everbloom-banner {
+    position: relative;
+    isolation: isolate;
+    padding: clamp(4rem, 11vw, 8rem) 1.5rem;
+    overflow: hidden;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(255, 248, 223, 0.22),
+            transparent 30%
+        ),
+        linear-gradient(
+            125deg,
+            rgba(47, 107, 69, 0.94),
+            rgba(89, 107, 63, 0.9) 48%,
+            rgba(90, 62, 43, 0.92)
+        );
+    border-bottom: 1px solid var(--ever-border);
+    box-shadow: 0 14px 34px var(--ever-shadow);
+}
+
+.everbloom-banner::before,
+.everbloom-banner::after {
+    position: absolute;
+    z-index: -1;
+    width: 18rem;
+    height: 18rem;
+    content: "";
+    border: 1px solid rgba(168, 184, 154, 0.28);
+    border-radius: 44% 56% 62% 38%;
+    transform: rotate(24deg);
+}
+
+.everbloom-banner::before {
+    top: -8rem;
+    left: -5rem;
+    background: rgba(120, 174, 181, 0.12);
+}
+
+.everbloom-banner::after {
+    right: -6rem;
+    bottom: -9rem;
+    background: rgba(228, 166, 173, 0.12);
+    transform: rotate(-31deg);
+}
+
+.everbloom-eyebrow,
+.everbloom-kicker {
+    margin: 0 0 0.55rem;
+    color: var(--ever-pollen);
+    font-family: monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.everbloom-banner-title {
+    margin: 0;
+    color: var(--ever-cream);
+    font-size: clamp(2.7rem, 8vw, 6.5rem);
+    line-height: 0.95;
+    text-shadow:
+        0 3px 0 var(--ever-loam),
+        0 0 24px rgba(121, 168, 87, 0.38);
+}
+
+.everbloom-banner-subtitle {
+    max-width: 44rem;
+    margin: 1.15rem auto 0;
+    color: var(--ever-cream);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+}
+
+/* ------------------------------
+   SHARED CONTENT WIDTH
+--------------------------------*/
+.everbloom-introduction,
+.everbloom-section,
+.everbloom-seed-grid,
+.everbloom-values {
+    width: min(92%, 72rem);
+    margin: clamp(2rem, 5vw, 4.5rem) auto;
+}
+
+.everbloom-introduction,
+.everbloom-section,
+.everbloom-values,
+.trinity-container,
+.everbloom-container {
+    padding: clamp(1.35rem, 4vw, 2.75rem);
+    color: var(--ever-cream);
+    background: linear-gradient(
+        145deg,
+        rgba(36, 26, 20, 0.88),
+        rgba(47, 107, 69, 0.22)
+    );
+    border: 1px solid var(--ever-border);
+    border-left: 4px solid var(--ever-new-leaf);
+    border-radius: 16px;
+    box-shadow: 0 12px 32px var(--ever-shadow);
+    backdrop-filter: blur(8px);
+}
+
+.everbloom-description {
+    max-width: 62rem;
+}
+
+.everbloom-section-heading,
+.everbloom-grid-heading {
+    margin-bottom: 1.25rem;
+}
+
+main h1,
+main h2,
+main h3,
+.trinity-title,
+.everbloom-title {
+    color: var(--ever-new-leaf);
+}
+
+.everbloom-section h2,
+.everbloom-grid-heading h2,
+.everbloom-values h2 {
+    margin: 0;
+    color: var(--ever-cream);
+}
+
+.trinity-subtitle,
+.everbloom-subtitle {
+    color: var(--ever-sage);
+}
+
+main a {
+    color: var(--ever-rainwater);
+}
+
+main a:hover,
+main a:focus-visible {
+    color: var(--ever-pollen);
+}
+
+/* ------------------------------
+   SEED METHOD GRID
+--------------------------------*/
+.everbloom-seed-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.everbloom-grid-heading {
+    grid-column: 1 / -1;
+    padding: 0.5rem 0.25rem 1rem;
+}
+
+.everbloom-grid-heading > p:last-child {
+    max-width: 45rem;
+    color: var(--ever-sage);
+}
+
+.everbloom-seed-card {
+    position: relative;
+    padding: 1.5rem;
+    overflow: hidden;
+    background: linear-gradient(
+        145deg,
+        rgba(89, 107, 63, 0.52),
+        rgba(36, 26, 20, 0.88)
+    );
+    border: 1px solid var(--ever-border);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(36, 26, 20, 0.36);
+    transition:
+        transform 260ms ease,
+        border-color 260ms ease,
+        box-shadow 260ms ease;
+}
+
+.everbloom-seed-card:nth-of-type(2) {
+    border-color: rgba(120, 174, 181, 0.58);
+}
+
+.everbloom-seed-card:nth-of-type(3) {
+    border-color: rgba(183, 165, 200, 0.58);
+}
+
+.everbloom-seed-card:nth-of-type(4) {
+    border-color: rgba(228, 166, 173, 0.58);
+}
+
+.everbloom-seed-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--ever-new-leaf);
+    box-shadow: 0 14px 30px var(--ever-shadow), 0 0 16px var(--ever-glow);
+}
+
+.everbloom-seed-card h3 {
+    margin: 0.35rem 0 0.55rem;
+    color: var(--ever-cream);
+}
+
+.everbloom-seed-card p {
+    margin-bottom: 0;
+}
+
+.everbloom-seed-number {
+    color: var(--ever-pollen);
+    font-family: monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+}
+
+/* ------------------------------
+   LIVING ARCHIVE
+--------------------------------*/
+.everbloom-archive {
+    border-left-color: var(--ever-rainwater);
+    background: linear-gradient(
+        145deg,
+        rgba(36, 26, 20, 0.9),
+        rgba(120, 174, 181, 0.18)
+    );
+}
+
+.everbloom-principle {
+    margin: 2rem 0 0;
+    padding: 1.2rem 1.4rem;
+    background: rgba(183, 165, 200, 0.13);
+    border-left: 3px solid var(--ever-lavender);
+    border-radius: 0 10px 10px 0;
+}
+
+.everbloom-principle p {
+    margin: 0;
+    color: var(--ever-cream);
+    font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    font-style: italic;
+}
+
+/* ------------------------------
+   GROWTH PRINCIPLES
+--------------------------------*/
+.everbloom-values {
+    border-left-color: var(--ever-petal);
+}
+
+.everbloom-values-list {
+    display: grid;
+    gap: 0.8rem;
+    padding: 0;
+    list-style: none;
+}
+
+.everbloom-values-list li {
+    position: relative;
+    padding: 0.85rem 1rem 0.85rem 2.7rem;
+    background: rgba(168, 184, 154, 0.1);
+    border: 1px solid rgba(168, 184, 154, 0.2);
+    border-radius: 10px;
+}
+
+.everbloom-values-list li::before {
+    position: absolute;
+    top: 0.72rem;
+    left: 1rem;
+    color: var(--ever-new-leaf);
+    content: "✦";
+}
+
+/* ------------------------------
+   STATUS AND BUTTONS
+--------------------------------*/
+.trinity-status,
+.everbloom-status {
+    color: var(--ever-new-leaf);
+}
+
+.trinity-status.warn,
+.everbloom-status.warn {
+    color: var(--ever-pollen);
+}
+
+.trinity-status.error,
+.everbloom-status.error {
+    color: var(--ever-berry);
+}
+
+.trinity-btn,
+.everbloom-btn {
+    color: var(--ever-loam);
+    background-color: var(--ever-new-leaf);
+    border-color: var(--ever-sage);
+    font-weight: 700;
+}
+
+.trinity-btn:hover,
+.trinity-btn:focus-visible,
+.everbloom-btn:hover,
+.everbloom-btn:focus-visible {
+    color: var(--ever-loam);
+    background-color: var(--ever-pollen);
+    border-color: var(--ever-cream);
+    box-shadow: 0 0 16px rgba(227, 189, 87, 0.4);
+}
+
+/* ------------------------------
+   FOOTER
+--------------------------------*/
+.realm-footer {
+    padding: 2rem 1rem 2.5rem;
+    color: var(--ever-sage);
+    text-align: center;
+    background: rgba(36, 26, 20, 0.86);
+    border-top: 1px solid var(--ever-border);
+}
+
+.realm-footer a {
+    color: var(--ever-rainwater);
+}
+
+/* ------------------------------
+   EVERBLOOM PULSE
+--------------------------------*/
+@keyframes everbloomPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(121, 168, 87, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 14px rgba(121, 168, 87, 0.55),
+            0 0 28px rgba(120, 174, 181, 0.2);
+    }
+}
+
+.trinity-pulse,
+.everbloom-pulse {
+    animation-name: everbloomPulse;
+}
+
+/* ------------------------------
+   RESPONSIVE LAYOUT
+--------------------------------*/
+@media (max-width: 700px) {
+    .everbloom-seed-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .everbloom-banner::before,
+    .everbloom-banner::after {
+        width: 12rem;
+        height: 12rem;
+    }
+}
+
+/* ------------------------------
+   ACCESSIBILITY
+--------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+    .trinity-pulse,
+    .trinity-distort,
+    .everbloom-pulse {
+        animation: none;
+    }
+
+    .everbloom-seed-card {
+        transition: none;
+    }
+
+    body.realm-everbloom {
+        background-attachment: scroll;
+    }
+}

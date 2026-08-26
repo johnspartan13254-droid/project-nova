@@ -1,0 +1,218 @@
+/* ============================================================
+   SOLAS.CSS — SOLAR AESTHETIC LAYER
+   Sun Gold | Amber | Ivory | Solar Orange | Ember Red
+   Radiant | Restorative | Warm | Clear
+
+   Load this file AFTER regional.css so these values override
+   the shared Trinity defaults on the Solas page.
+   ============================================================ */
+
+/* ------------------------------
+   SOLAS COLOR VARIABLES
+--------------------------------*/
+:root {
+    --solas-night: #211706;
+    --solas-brown: #4a3008;
+    --solas-gold: #f2c94c;
+    --solas-gold-bright: #ffe58a;
+    --solas-ivory: #fffdf2;
+    --solas-amber: #e9a52a;
+    --solas-orange: #e56b1f;
+    --solas-red: #b83224;
+
+    --solas-bg: rgba(33, 23, 6, 0.9);
+    --solas-panel: rgba(74, 48, 8, 0.78);
+    --solas-border: rgba(242, 201, 76, 0.62);
+    --solas-glow: rgba(255, 229, 138, 0.55);
+
+    /* Override the shared Trinity palette on this page. */
+    --tri-cyan: var(--solas-gold);
+    --tri-indigo: var(--solas-brown);
+    --tri-emerald: var(--solas-amber);
+    --tri-lavender: var(--solas-ivory);
+    --tri-warn: var(--solas-orange);
+    --tri-error: var(--solas-red);
+    --tri-bg: var(--solas-bg);
+    --tri-border: var(--solas-border);
+    --tri-pulse-speed: 3.2s;
+    --tri-fade-speed: 2s;
+}
+
+/* ------------------------------
+   PAGE FOUNDATION
+--------------------------------*/
+body {
+    color: var(--solas-ivory);
+    background-color: var(--solas-night);
+    background-image: radial-gradient(
+        circle at top,
+        rgba(242, 201, 76, 0.15),
+        transparent 42%
+    );
+}
+
+main {
+    color: var(--solas-ivory);
+}
+
+main p,
+main li {
+    color: var(--solas-ivory);
+}
+
+/* ------------------------------
+   HEADER AND NAVIGATION
+--------------------------------*/
+header {
+    color: var(--solas-ivory);
+    background: linear-gradient(
+        90deg,
+        var(--solas-night),
+        var(--solas-brown),
+        var(--solas-night)
+    );
+    border-bottom: 2px solid var(--solas-gold);
+}
+
+header h1,
+header h2 {
+    color: var(--solas-gold-bright);
+    text-shadow: 0 0 12px rgba(242, 201, 76, 0.34);
+}
+
+nav a {
+    color: var(--solas-ivory);
+    text-decoration-color: var(--solas-gold);
+    transition: color 220ms ease, background-color 220ms ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--solas-night);
+    background-color: var(--solas-gold-bright);
+}
+
+/* ------------------------------
+   TITLES AND TEXT ACCENTS
+--------------------------------*/
+main h1,
+main h2,
+main h3 {
+    color: var(--solas-gold);
+}
+
+main strong,
+main .highlight {
+    color: var(--solas-amber);
+}
+
+main a {
+    color: var(--solas-gold-bright);
+}
+
+main a:hover,
+main a:focus-visible {
+    color: var(--solas-orange);
+}
+
+/* ------------------------------
+   REGIONAL CONTAINER
+--------------------------------*/
+.trinity-container,
+.solas-container {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--solas-ivory);
+    background: linear-gradient(
+        145deg,
+        var(--solas-panel),
+        var(--solas-bg)
+    );
+    border: 1px solid var(--solas-border);
+    border-left: 4px solid var(--solas-gold);
+    border-radius: 8px;
+    box-shadow:
+        0 8px 24px rgba(33, 23, 6, 0.45),
+        inset 0 1px 0 rgba(255, 253, 242, 0.08);
+    backdrop-filter: blur(6px);
+}
+
+/* ------------------------------
+   SHARED TITLES AND STATUS
+--------------------------------*/
+.trinity-title,
+.solas-title {
+    color: var(--solas-gold-bright);
+}
+
+.trinity-subtitle,
+.solas-subtitle {
+    color: var(--solas-amber);
+}
+
+.trinity-status,
+.solas-status {
+    color: var(--solas-gold);
+}
+
+.trinity-status.warn,
+.solas-status.warn {
+    color: var(--solas-orange);
+}
+
+.trinity-status.error,
+.solas-status.error {
+    color: var(--solas-red);
+}
+
+/* ------------------------------
+   BUTTONS
+--------------------------------*/
+.trinity-btn,
+.solas-btn {
+    color: var(--solas-night);
+    background-color: var(--solas-gold);
+    border-color: var(--solas-gold-bright);
+    font-weight: 700;
+}
+
+.trinity-btn:hover,
+.trinity-btn:focus-visible,
+.solas-btn:hover,
+.solas-btn:focus-visible {
+    color: var(--solas-night);
+    background-color: var(--solas-gold-bright);
+    border-color: var(--solas-orange);
+    box-shadow: 0 0 18px var(--solas-glow);
+}
+
+/* ------------------------------
+   SOLAR PULSE
+--------------------------------*/
+@keyframes solasPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(242, 201, 76, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 12px rgba(242, 201, 76, 0.72),
+            0 0 26px rgba(229, 107, 31, 0.28);
+    }
+}
+
+.trinity-pulse,
+.solas-pulse {
+    animation-name: solasPulse;
+}
+
+/* ------------------------------
+   ACCESSIBILITY: REDUCED MOTION
+--------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+    .trinity-pulse,
+    .trinity-distort,
+    .solas-pulse {
+        animation: none;
+    }
+}
