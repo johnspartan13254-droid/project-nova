@@ -1,91 +1,197 @@
-/* ================================
-   GLOBAL BASE — CHARCOAL SYSTEM
-   ================================ */
+/* ============================================================
+   VIROMANCY — REACTIVE DISTORTION LAYER
+   Dynamic classes, corruption states, pulses, mutations
+   ============================================================ */
 
 :root {
-  --bg-charcoal: #1a1a1a;
-  --text-light: #e6e6e6;
+    --viro-cyan: #4fffe7;
+    --viro-pink: #ff4fd8;
+    --viro-green: #3cff8f;
+    --viro-dark: #0a0f14;
+    --viro-corrupt: #ff2f4f;
+    --kutulu-match: #00eaff;
+    --kutulu-opposition: #6a5cff;
+    --kutulu-uv: #ff00ff; /* optional */
+    --viro-speed: 260ms;
+    --viro-distort-speed: 480ms;
 
-  --heading-cyan: #00e5ff;
-  --nav-lavender: #c7a6ff;
+  /* --- NOVA REALM : CORE SIGNAL COLORS --- */
+  --nova-primary: #4DA3FF;        /* Electric Blue */
+  --nova-secondary: #0A1A2F;      /* Deep Space Navy */
+  --nova-accent: #F5F9FF;         /* Solar White */
+  --nova-highlight: #FFD86B;      /* Ion Gold */
+  --nova-shadow: #000814;         /* Gravity Black */
 
-  --btn-lava: #ff5a1f;
-  --btn-lava-dark: #cc4719;
+  /* --- NOVA REALM : UI APPLICATION LAYERS --- */
+  --nova-bg: var(--nova-secondary);
+  --nova-surface: #11263F;        /* Slight lift above bg */
+  --nova-surface-alt: #0F2238;    /* Deeper variant */
 
-  --hover-neon: #39ff14;
+  --nova-text: var(--nova-accent);
+  --nova-text-muted: #B8C7D9;
+  --nova-text-invert: var(--nova-secondary);
+
+  --nova-border: rgba(77,163,255,0.35); /* primary glow hint */
+  --nova-border-strong: rgba(77,163,255,0.65);
+
+  /* --- NOVA REALM : GLOW / FX --- */
+  --nova-glow-primary: 0 0 12px rgba(77,163,255,0.55);
+  --nova-glow-highlight: 0 0 16px rgba(255,216,107,0.55);
+  --nova-glow-accent: 0 0 10px rgba(245,249,255,0.45);
+
+  /* --- NOVA REALM : INTERACTION STATES --- */
+  --nova-hover: #5BB0FF;
+  --nova-active: #3A8CE0;
+  --nova-focus-ring: 0 0 0 2px rgba(77,163,255,0.75);
+
+  /* --- NOVA REALM : GRADIENTS --- */
+  --nova-gradient-primary: linear-gradient(
+    135deg,
+    #4DA3FF 0%,
+    #0A1A2F 100%
+  );
+
+  --nova-gradient-highlight: linear-gradient(
+    135deg,
+    #FFD86B 0%,
+    #4DA3FF 100%
+  );
+  /* --- Nova realm core --- */
+  --nova-primary: #4DA3FF;     /* Electric Blue */
+  --nova-secondary: #0A1A2F;   /* Deep Space Navy */
+  --nova-accent: #F5F9FF;      /* Solar White */
+  --nova-highlight: #FFD86B;   /* Ion Gold */
+  --nova-shadow: #000814;      /* Gravity Black */
+
+  /* --- Viro engine mapping --- */
+  --viro-speed: 0.25s;
+  --viro-distort-speed: 0.9s;
+
+  --viro-cyan: var(--nova-primary);       /* hover pulse */
+  --viro-corrupt: var(--nova-highlight);  /* corruption glow */
+  --viro-green: #7EF29D;                  /* mutation low pulse */
+  --viro-pink: #F4C6D7;                   /* mutation high pulse */
+	}
+};
+
+
+/* ------------------------------
+   Base reactive element
+--------------------------------*/
+.viro {
+    position: relative;
+    transition: all var(--viro-speed) ease;
+    filter: none;
 }
 
-/* Reset + Base */
-html, body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg-charcoal);
-  color: var(--text-light);
-  font-family: system-ui, sans-serif;
+/* ------------------------------
+   Hover-reactive pulse
+--------------------------------*/
+.viro:hover {
+    filter: drop-shadow(0 0 12px var(--viro-cyan));
+    transform: scale(1.03);
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--heading-cyan);
-  margin-top: 0;
+/* ------------------------------
+   Corruption state
+--------------------------------*/
+.viro.corrupt {
+    filter: hue-rotate(140deg) saturate(2.2) drop-shadow(0 0 18px var(--viro-corrupt));
+    animation: viroCorrupt var(--viro-distort-speed) infinite alternate;
 }
 
-/* Navigation */
-nav {
-  background: var(--nav-lavender);
-  color: #1a1a1a;
-  padding: 0.75rem 1rem;
+@keyframes viroCorrupt {
+    0% {
+        transform: scale(1) skew(0deg);
+    }
+    50% {
+        transform: scale(1.05) skew(2deg);
+    }
+    100% {
+        transform: scale(0.97) skew(-2deg);
+    }
 }
 
-nav a {
-  color: #1a1a1a;
-  text-decoration: none;
-  font-weight: 600;
+/* ------------------------------
+   Mutation pulse
+--------------------------------*/
+.viro.mutate {
+    animation: viroMutate 1.2s infinite ease-in-out;
 }
 
-nav a:hover {
-  color: var(--hover-neon);
+@keyframes viroMutate {
+    0% {
+        filter: drop-shadow(0 0 4px var(--viro-green));
+    }
+    50% {
+        filter: drop-shadow(0 0 16px var(--viro-pink));
+    }
+    100% {
+        filter: drop-shadow(0 0 4px var(--viro-green));
+    }
 }
 
-/* Buttons */
-button,
-.btn {
-  background: var(--btn-lava);
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1rem;
+/* ------------------------------
+   Clean state (reset)
+--------------------------------*/
+.viro.clean {
+    filter: none;
+    animation: none;
+    transform: none;
+}
+
+
+.therom p{
+  --therom-base: #4B00A2;   /* indigo */
+  --therom-cool: #H6H6RA;   /*  lavender */
+  --therom-warm: #EE82EE;   /* violet */
+}
+
+/* ------------------------------
+   Accordion container
+--------------------------------*/
+.accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ------------------------------
+   Accordion header
+--------------------------------*/
+.accordion-header {
+  background: var(--nova-secondary);
+  color: var(--nova-accent);
+  padding: 12px 16px;
+  border: 1px solid var(--nova-border);
   border-radius: 6px;
-  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  text-align: left;
+  font-size: 1.1rem;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
-button:hover,
-.btn:hover {
-  background: var(--btn-lava-dark);
-  color: var(--hover-neon);
+.accordion-header.active {
+  background: var(--nova-primary);
+  border-color: var(--nova-highlight);
 }
 
-/* Callouts */
-.callout {
-  background: var(--btn-lava);
-  color: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
+/* ------------------------------
+   Accordion body
+--------------------------------*/
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--nova-surface);
+  border-left: 2px solid var(--nova-primary);
+  border-radius: 0 0 6px 6px;
+  padding: 0 16px;
+  transition: max-height 0.35s ease;
 }
 
-.callout:hover {
-  background: var(--btn-lava-dark);
-  color: var(--hover-neon);
+.accordion-body.open {
+  padding: 16px;
+  max-height: 500px; /* enough for most content */
 }
 
-/* Links */
-a {
-  color: var(--heading-cyan);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--hover-neon);
-}

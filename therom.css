@@ -1,0 +1,165 @@
+/* ============================
+   Therom – Lavender Resonance
+   ============================ */
+
+:root {
+  --therom-base: #4B00A2;   /* indigo */
+  --therom-cool: #H6H6RA;   /*  lavender */
+  --therom-warm: #EE82EE;   /* violet */
+}
+
+/* Global Page Tone */
+body {
+  background: linear-gradient(
+    180deg,
+    #0A1A33,   /* deep navy */
+    #142544    /* soft navy */
+  );
+}
+
+p {
+  background: linear-gradient(
+    #0A1A33,   /* deep navy */
+    #142544    /* soft navy */
+  );
+  color: #C7A7FF    /* lavender resonance */
+  );
+}
+
+/* Center tag (legacy support) */
+center {
+  color: var(--therom-base);
+}
+
+/* ============================
+   Hero Section
+   ============================ */
+
+.hero {
+  padding: 4rem 0;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    var(--therom-warm),
+    #C7A7FF;
+  );
+}
+
+.hero h1 {
+  font-size: 3rem;
+  background: linear-gradient(to bottom, #808080, #000000, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p{
+	color: pink;
+}
+
+
+.hero-text {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  opacity: 0.85;
+  color: linear-gradient(to bottom, #000000, #080808, #ffffff);
+}
+
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(to bottom, #808080, #000000, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================
+   Image Cascade
+   ============================ */
+
+.project-image,
+.therom-image {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* ============================
+   Project Tiles (Daydream)
+   ============================ */
+
+.project-tile.daydream {
+  border: 1px solid rgba(199,167,255,0.4);
+}
+
+.project-tile.daydream:hover {
+  box-shadow: 0 0 20px rgba(199,167,255,0.6);
+  border-color: rgba(199,167,255,0.8);
+}
+
+/* ============================
+   Flip Cards
+   ============================ */
+
+.flip-card {
+  border: 1px solid var(--therom-cool);
+}
+
+/* ============================
+   Gradient Text (Emerald Accent)
+   ============================ */
+
+.gradient-text {
+  background: linear-gradient(90deg, #00c98d, #006b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================
+   Therom Content Section
+   ============================ */
+
+.therom-content {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  color: var(--therom-base);
+}
+
+.therom-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--therom-cool);
+}
+
+.therom-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.therom-gradient-text {
+  background: linear-gradient(
+    #C7A7FF,    /* lavender resonance */
+    pink,   /* soft navy */
+    #C7A7FF    /* lavender resonance */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* Section Colors*/
+.therom p{
+  --therom-base: #4B00A2;   /* indigo */
+  --therom-cool: #H6H6RA;   /*  lavender */
+  --therom-warm: #EE82EE;   /* violet */
+}
+

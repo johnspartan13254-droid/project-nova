@@ -1,0 +1,135 @@
+/* ============================================================
+   REGIONAL.CSS — TRINITY AESTHETIC LAYER
+   Shared styles for Magnetar, Comm-Array, Viromancy
+   Cosmic-Tech | Modular | Reactive | Unified
+   ============================================================ */
+
+/* ------------------------------
+   SHARED COLOR VARIABLES
+--------------------------------*/
+:root {
+    --tri-cyan: #4fffe7;
+    --tri-indigo: #5a4fff;
+    --tri-emerald: #3cff8f;
+    --tri-lavender: #c89bff;
+
+    --tri-warn: #ffd54f;
+    --tri-error: #ff4f6b;
+
+    --tri-bg: rgba(10, 15, 20, 0.55);
+    --tri-border: rgba(79, 255, 231, 0.25);
+
+    --tri-pulse-speed: 280ms;
+    --tri-fade-speed: 420ms;
+}
+
+/* ------------------------------
+   REGIONAL CONTAINER
+--------------------------------*/
+.trinity-container {
+    padding: 1.5rem;
+    background: var(--tri-bg);
+    border-left: 2px solid var(--tri-cyan);
+    backdrop-filter: blur(6px);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+/* ------------------------------
+   SHARED TITLES
+--------------------------------*/
+.trinity-title {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.4rem;
+    color: var(--tri-lavender);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.trinity-subtitle {
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: var(--tri-emerald);
+    opacity: 0.85;
+}
+
+/* ------------------------------
+   SHARED SIGNAL / STATUS TEXT
+--------------------------------*/
+.trinity-status {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--tri-emerald);
+    margin-top: 0.5rem;
+}
+
+/* Warning */
+.trinity-status.warn {
+    color: var(--tri-warn);
+}
+
+/* Error */
+.trinity-status.error {
+    color: var(--tri-error);
+}
+
+/* ------------------------------
+   SHARED PULSE EFFECT
+--------------------------------*/
+@keyframes triPulse {
+    0% {
+        box-shadow: 0 0 0px var(--tri-cyan);
+    }
+    50% {
+        box-shadow: 0 0 14px var(--tri-cyan);
+    }
+    100% {
+        box-shadow: 0 0 0px var(--tri-cyan);
+    }
+}
+
+.trinity-pulse {
+    animation: triPulse var(--tri-pulse-speed) infinite ease-in-out;
+}
+
+/* ------------------------------
+   SHARED DISTORTION EFFECT
+--------------------------------*/
+@keyframes triDistort {
+    0% {
+        transform: scale(1) skew(0deg);
+    }
+    50% {
+        transform: scale(1.03) skew(1deg);
+    }
+    100% {
+        transform: scale(0.98) skew(-1deg);
+    }
+}
+
+.trinity-distort {
+    animation: triDistort var(--tri-fade-speed) infinite alternate;
+}
+
+/* ------------------------------
+   SHARED BUTTON STYLE
+--------------------------------*/
+.trinity-btn {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--tri-border);
+    border-radius: 6px;
+    color: var(--tri-cyan);
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all var(--tri-fade-speed);
+}
+
+.trinity-btn:hover {
+    border-color: var(--tri-cyan);
+    color: var(--tri-cyan);
+    box-shadow: 0 0 12px var(--tri-cyan);
+    transform: scale(1.05);
+}

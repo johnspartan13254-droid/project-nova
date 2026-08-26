@@ -1,4 +1,73 @@
 /* Daydream – Lavender */
+:root {
+  /* ------------------------------
+     DAYDREAM REALM : CORE COLORS
+  --------------------------------*/
+  --daydream-primary: #C7A7FF;     /* Dream Lavender */
+  --daydream-secondary: #F4C6D7;   /* Mist Pink */
+  --daydream-accent: #AEE4FF;      /* Cloud Blue */
+  --daydream-highlight: #FFDFB3;   /* Glow Peach */
+  --daydream-shadow: #2A0F3B;      /* Midnight Plum */
+
+  /* ------------------------------
+     DAYDREAM REALM : SURFACES
+  --------------------------------*/
+  --daydream-bg: #1A0F26;          /* Deep dream backdrop */
+  --daydream-surface: #241233;     /* Soft elevated panel */
+  --daydream-surface-alt: #2E1842; /* Slightly brighter lift */
+
+  /* ------------------------------
+     DAYDREAM REALM : TEXT
+  --------------------------------*/
+  --daydream-text: #F7ECFF;        /* Soft lavender-white */
+  --daydream-text-muted: #D9C7E8;  /* Gentle muted tone */
+  --daydream-text-invert: #1A0F26; /* For bright surfaces */
+
+  /* ------------------------------
+     DAYDREAM REALM : BORDERS
+  --------------------------------*/
+  --daydream-border: rgba(199,167,255,0.35);  /* lavender glow */
+  --daydream-border-strong: rgba(199,167,255,0.65);
+
+  /* ------------------------------
+     DAYDREAM REALM : GLOW / FX
+  --------------------------------*/
+  --daydream-glow-primary: 0 0 14px rgba(199,167,255,0.55);
+  --daydream-glow-accent: 0 0 12px rgba(174,228,255,0.45);
+  --daydream-glow-highlight: 0 0 16px rgba(255,223,179,0.55);
+
+  /* ------------------------------
+     DAYDREAM REALM : INTERACTION
+  --------------------------------*/
+  --daydream-hover: #D4B4FF;       /* brighter lavender */
+  --daydream-active: #B38CFF;      /* deeper pulse */
+  --daydream-focus-ring: 0 0 0 2px rgba(199,167,255,0.75);
+  
+ 
+  /* ------------------------------
+     DAYDREAM REALM : GRADIENTS
+  --------------------------------*/
+  --daydream-gradient-primary: linear-gradient(
+    135deg,
+    #C7A7FF 0%,
+    #F4C6D7 50%,
+    #AEE4FF 100%
+  );
+
+  --daydream-gradient-highlight: linear-gradient(
+    135deg,
+    #FFDFB3 0%,
+    #C7A7FF 100%
+  );
+}
+
+.realm-daydream {
+  --viro-cyan: var(--daydream-accent);
+  --viro-corrupt: var(--daydream-highlight);
+  --viro-green: var(--daydream-secondary);
+  --viro-pink: var(--daydream-primary);
+}
+
 
 .project-image {
   width: 100%;
@@ -15,10 +84,6 @@
 .project-tile.daydream:hover {
     box-shadow: 0 0 20px rgba(200,160,255,0.6);
     border-color: rgba(200,160,255,0.8);
-    --core: #C9A8FF;
-    --material: #D8D8DD;
-    --accent-1: #FFBFA8;
-    --accent-2: #AEE8FF;
 }
 
 .flip-card {
@@ -37,7 +102,124 @@ center {
   -webkit-text-fill-color: transparent;
 }
 
+/*Hero Section*/
 
+.hero {
+  padding: 4rem 0;
+  background: linear-gradient(180deg, #fdfcff, #eef3ff);
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.hero-text {
+  max-width: 600px;
+  font-size: 1.25rem;
+  opacity: 0.85;
+}
+
+.project-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+/* -----------------------------------------
+   DAYDREAM REALM ACCORDION
+------------------------------------------*/
+
+.realm-daydream .accordion-header {
+  background: var(--daydream-surface);
+  color: var(--daydream-text);
+  border: 1px solid var(--daydream-border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: 
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: var(--daydream-glow-primary);
+}
+
+.realm-daydream .accordion-header:hover {
+  background: var(--daydream-hover);
+  border-color: var(--daydream-highlight);
+  box-shadow: var(--daydream-glow-highlight);
+}
+
+.realm-daydream .accordion-header.active {
+  background: var(--daydream-primary);
+  border-color: var(--daydream-accent);
+  box-shadow: var(--daydream-glow-accent);
+}
+
+/* -----------------------------------------
+   Accordion Body
+------------------------------------------*/
+
+.realm-daydream .accordion-body {
+  max-height: 500;
+  overflow: hidden;
+  background: var(--daydream-surface-alt);
+  border-left: 3px solid var(--daydream-primary);
+  border-radius: 0 0 8px 8px;
+  padding: 0 18px;
+  color: var(--daydream-text-muted);
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.realm-daydream .accordion-body.open {
+  max-height: 600px;
+  padding: 18px;
+  box-shadow: inset 0 0 12px rgba(199,167,255,0.25);
+}
+
+body[data-realm="daydream"] .accordion-header {
+  background: var(--daydream-surface);
+  color: var(--daydream-text);
+  border: 1px solid var(--daydream-border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--daydream-glow-primary);
+}
+
+body[data-realm="daydream"] .accordion-header:hover {
+  background: var(--daydream-hover);
+  border-color: var(--daydream-highlight);
+  box-shadow: var(--daydream-glow-highlight);
+}
+
+body[data-realm="daydream"] .accordion-header.active {
+  background: var(--daydream-primary);
+  border-color: var(--daydream-accent);
+  box-shadow: var(--daydream-glow-accent);
+}
+
+body[data-realm="daydream"] .accordion-body {
+  max-height: 500;
+  overflow: hidden;
+  background: var(--daydream-surface-alt);
+  border-left: 3px solid var(--daydream-primary);
+  border-radius: 0 0 8px 8px;
+  padding: 0 18px;
+  color: var(--daydream-text-muted);
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+body[data-realm="daydream"] .accordion-body.open {
+  max-height: 600px;
+  padding: 18px;
+  box-shadow: inset 0 0 12px rgba(199,167,255,0.25);
+}
+
+body[data-realm="daydream"] .accordion-toggle {
+  transition: 002000;
+}
 
 
 

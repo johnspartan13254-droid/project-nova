@@ -1,8 +1,3 @@
-p{
-	
-}
-
-
 /* Yggdrasil – Emerald */
 .project-tile.yggdrasil {
     border: 1px solid rgba(0,255,128,0.4);
@@ -11,21 +6,6 @@ p{
 .project-tile.yggdrasil:hover {
     box-shadow: 0 0 20px rgba(0,255,128,0.6);
     border-color: rgba(0,255,128,0.8);
-}
-
-
-/* Yggdrasil – Nav Hover */
-.nav-link.yggdrasil:hover {
-    color: #fff;
-    text-shadow: 0 0 6px rgba(255,255,255,0.7);
-}
-
-.yggdrasil nav a:hover {
-	--core: #2FAF6B;
-    --material: #5A4633;
-    --accent-1: #E2C15A;
-    --accent-2: #A8D8A0;
-	text-shadow: 0 0 10px rgba(255,255,255,0.8);
 }
 
 /* Yggdrasil – Nav Hover (Bright Mode) */
@@ -40,6 +20,11 @@ nav a.yggdrasil:hover {
 center{
 	color: cyan;
 }
+
+.glow-text {
+    text-align: center;
+}
+
 
 
 

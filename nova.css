@@ -10,12 +10,6 @@ h1 {
 p {
 	Color: White;
 	
-	/*Nova*/
- --core: #2FD8FF;
- --material: #6E6F75;
- --accent-1: #4B3CFF;
- --accent-2: #F2F7FF;
-	
 /* Base card styling for Nova components */
 .nova-card {
     width: 320px;
@@ -87,3 +81,61 @@ p {
 .nova-signal {
     animation: novaSignal 3.2s ease-in-out infinite;
 }
+
+.nova-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.nova-glow.active-glow {
+  box-shadow: 0 0 20px var(--nova-accent);
+  transform: translateY(-2px);
+}
+
+.nova-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.nova-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nova-pulse {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--nova-accent) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  animation: novaPulseAnim 1.2s ease-out forwards;
+}
+
+@keyframes novaPulseAnim {
+  from { transform: translate(-50%, -50%) scale(0.2); opacity: 0.9; }
+  to { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+}
+
+.nova-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--nova-bg);
+  color: var(--nova-accent);
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--nova-accent);
+  font-family: var(--nova-font);
+  animation: fadeInOut 4s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
