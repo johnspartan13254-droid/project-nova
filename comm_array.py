@@ -1,5 +1,8 @@
+# comm-array
+# Heartbeat 01: Twilight Field
 import pygame
 import math
+import random
 import sys
 
 pygame.init()
@@ -26,6 +29,38 @@ PALETTE = [
     (12, 28, 55),      # deep ocean blue
 ]
 
+# --------------------------------------------------
+# PARTICLES
+# --------------------------------------------------
+
+particles = []
+
+for _ in range(40):
+    particles.append({
+        "x": random.uniform(0, WIDTH),
+        "y": random.uniform(0, HEIGHT),
+        "speed": random.uniform(20, 55),
+        "drift": random.uniform(-10, 10),
+        "radius": random.randint(4, 10),
+    })
+
+
+def update_particles(dt):
+    for particle in particles:
+        particle["y"] += particle["speed"] * dt
+        particle["x"] += particle["drift"] * dt
+
+        # wrap vertically
+        if particle["y"] > HEIGHT + 10:
+            particle["y"] = -10
+            particle["x"] = random.uniform(0, WIDTH)
+
+        # wrap horizontally
+        if particle["x"] < -10:
+            particle["x"] = WIDTH + 10
+
+        elif particle["x"] > WIDTH + 10:
+            particle["x"] = -10
 
 # --------------------------------------------------
 # COLOR HELPERS
@@ -63,34 +98,6 @@ def palette_color(position):
         PALETTE[index + 1],
         local_amount
     )
-
-
-# --------------------------------------------------
-# BLACKOUT + PARTICLE MASK SETUP
-# --------------------------------------------------
-
-blackout = pygame.Surface((WIDTH, HEIGHT))
-blackout.fill((0, 0, 0))
-
-particle_mask = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
-
-def draw_particles(mask_surface):
-    mask_surface.fill((0, 0, 0, 0))  # clear previous frame
-
-    for _ in range(40):  # number of particles
-        x = random.randint(0, WIDTH)
-        y = random.randint(0, HEIGHT)
-        r = random.randint(4, 10)
-
-        # draw white circles (these become "holes" in the blackout)
-        pygame.draw.circle(mask_surface, (255, 255, 255, 180), (x, y), r)
-
-    # blur effect using smoothscale trick
-    small = pygame.transform.smoothscale(mask_surface, (WIDTH//4, HEIGHT//4))
-    blurred = pygame.transform.smoothscale(small, (WIDTH, HEIGHT))
-    return blurred
-
-
 	
 # --------------------------------------------------
 # STATIC TWILIGHT GRADIENT
@@ -167,35 +174,53 @@ def draw_wave(surface, time_value,
 
     surface.blit(wave_surface, (0, 0))
 
+def draw_particles(mask_surface):
+    mask_surface.fill((0, 0, 0, 0))
+
+    for particle in particles:
+        pygame.draw.circle(
+            mask_surface,
+            (255, 255, 255, 180),
+            (
+                int(particle["x"]),
+                int(particle["y"])
+            ),
+            particle["radius"]
+        )
+
+    small = pygame.transform.smoothscale(
+        mask_surface,
+        (WIDTH // 4, HEIGHT // 4)
+    )
+
+    blurred = pygame.transform.smoothscale(
+        small,
+        (WIDTH, HEIGHT)
+    )
+
+    return blurred
 
 # --------------------------------------------------
 # MAIN LOOP
 # --------------------------------------------------
 
-# ----------------------------------------------
-# BACKGROUND (Twilight Field)
-# ----------------------------------------------
-screen.blit(gradient, (0, 0))
+running = True
+time_value = 0.0
 
-# ----------------------------------------------
-# WAVES (your resonance field)
-# ----------------------------------------------
-draw_wave(screen, time_value, 220, 20, 115, 0.45, 28, 20)
-draw_wave(screen, time_value, 310, 28, 150, -0.32, 38, 18)
-draw_wave(screen, time_value, 400, 16, 90, 0.24, 45, 14)
+while running:
 
-# ----------------------------------------------
-# PARTICLE MASK (snowflakes / raindrops)
-# ----------------------------------------------
-blurred_mask = draw_particles(particle_mask)
+    # ----------------------------------------------
+    # EVENTS
+    # ----------------------------------------------
 
-# ----------------------------------------------
-# BLACKOUT COMPOSITING
-# ----------------------------------------------
-# Where mask is bright → show Twilight Field
-# Where mask is dark → show blackout
-screen.blit(blackout, (0, 0))
-screen.blit(blurred_mask, (0, 0), special_flags=pygame.BLEND_RGBA_SUB)
+    for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            running = False
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
 
 
     # ----------------------------------------------
@@ -207,74 +232,63 @@ screen.blit(blurred_mask, (0, 0), special_flags=pygame.BLEND_RGBA_SUB)
 
 
     # ----------------------------------------------
-    # BACKGROUND
+    # UPDATE PARTICLES
+    # ----------------------------------------------
+
+    update_particles(dt)
+
+
+    # ----------------------------------------------
+    # TWILIGHT FIELD
     # ----------------------------------------------
 
     screen.blit(gradient, (0, 0))
 
 
     # ----------------------------------------------
-    # THREE SLOW SWELLS
+    # RESONANCE WAVES
     # ----------------------------------------------
 
     draw_wave(
         screen,
         time_value,
-        center_y=220,
-        amplitude=20,
-        wavelength=115,
-        speed=0.45,
-        thickness=28,
-        alpha=20
+        220,
+        20,
+        115,
+        0.45,
+        28,
+        20
     )
 
     draw_wave(
         screen,
         time_value,
-        center_y=310,
-        amplitude=28,
-        wavelength=150,
-        speed=-0.32,
-        thickness=38,
-        alpha=18
+        310,
+        28,
+        150,
+        -0.32,
+        38,
+        18
     )
 
     draw_wave(
         screen,
         time_value,
-        center_y=400,
-        amplitude=16,
-        wavelength=90,
-        speed=0.24,
-        thickness=45,
-        alpha=14
+        400,
+        16,
+        90,
+        0.24,
+        45,
+        14
     )
 
+
+    # ----------------------------------------------
+    # DISPLAY
+    # ----------------------------------------------
 
     pygame.display.flip()
 
 
 pygame.quit()
 sys.exit()
-
-# comm-array
-# Heartbeat 01: Twilight Field
-from pathlib import Path
-from renderer import save_frame
-
-OUTPUT = Path(__file__).parent / "output"
-OUTPUT.mkdir(exist_ok=True)
-
-filename = OUTPUT / "comm_array_twilight.png"
-
-print("Saving to:")
-print(filename.resolve())
-
-save_frame(
-    filename,
-    width=960,
-    height=540,
-    time=0.0
-)
-
-print("Finished.")
