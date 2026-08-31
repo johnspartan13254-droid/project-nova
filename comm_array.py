@@ -1,6 +1,3 @@
-# comm-array
-# Heartbeat 01: Twilight Field
-
 import pygame
 import math
 import sys
@@ -224,3 +221,25 @@ while running:
 
 pygame.quit()
 sys.exit()
+
+# comm-array
+# Heartbeat 01: Twilight Field
+from pathlib import Path
+from renderer import save_frame
+
+OUTPUT = Path(__file__).parent / "output"
+OUTPUT.mkdir(exist_ok=True)
+
+filename = OUTPUT / "comm_array_twilight.png"
+
+print("Saving to:")
+print(filename.resolve())
+
+save_frame(
+    filename,
+    width=960,
+    height=540,
+    time=0.0
+)
+
+print("Finished.")
