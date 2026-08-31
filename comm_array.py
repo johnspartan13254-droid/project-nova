@@ -13,7 +13,6 @@ pygame.display.set_caption("Comm-Array — Twilight Field")
 
 clock = pygame.time.Clock()
 
-
 # --------------------------------------------------
 # TWILIGHT PALETTE
 # top -> bottom
@@ -67,6 +66,33 @@ def palette_color(position):
 
 
 # --------------------------------------------------
+# BLACKOUT + PARTICLE MASK SETUP
+# --------------------------------------------------
+
+blackout = pygame.Surface((WIDTH, HEIGHT))
+blackout.fill((0, 0, 0))
+
+particle_mask = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+
+def draw_particles(mask_surface):
+    mask_surface.fill((0, 0, 0, 0))  # clear previous frame
+
+    for _ in range(40):  # number of particles
+        x = random.randint(0, WIDTH)
+        y = random.randint(0, HEIGHT)
+        r = random.randint(4, 10)
+
+        # draw white circles (these become "holes" in the blackout)
+        pygame.draw.circle(mask_surface, (255, 255, 255, 180), (x, y), r)
+
+    # blur effect using smoothscale trick
+    small = pygame.transform.smoothscale(mask_surface, (WIDTH//4, HEIGHT//4))
+    blurred = pygame.transform.smoothscale(small, (WIDTH, HEIGHT))
+    return blurred
+
+
+	
+# --------------------------------------------------
 # STATIC TWILIGHT GRADIENT
 # --------------------------------------------------
 
@@ -88,7 +114,6 @@ def create_gradient():
 
 
 gradient = create_gradient()
-
 
 # --------------------------------------------------
 # MOVING FIELD
@@ -147,20 +172,30 @@ def draw_wave(surface, time_value,
 # MAIN LOOP
 # --------------------------------------------------
 
-running = True
-time_value = 0.0
+# ----------------------------------------------
+# BACKGROUND (Twilight Field)
+# ----------------------------------------------
+screen.blit(gradient, (0, 0))
 
-while running:
+# ----------------------------------------------
+# WAVES (your resonance field)
+# ----------------------------------------------
+draw_wave(screen, time_value, 220, 20, 115, 0.45, 28, 20)
+draw_wave(screen, time_value, 310, 28, 150, -0.32, 38, 18)
+draw_wave(screen, time_value, 400, 16, 90, 0.24, 45, 14)
 
-    for event in pygame.event.get():
+# ----------------------------------------------
+# PARTICLE MASK (snowflakes / raindrops)
+# ----------------------------------------------
+blurred_mask = draw_particles(particle_mask)
 
-        if event.type == pygame.QUIT:
-            running = False
-
-        if event.type == pygame.KEYDOWN:
-
-            if event.key == pygame.K_ESCAPE:
-                running = False
+# ----------------------------------------------
+# BLACKOUT COMPOSITING
+# ----------------------------------------------
+# Where mask is bright → show Twilight Field
+# Where mask is dark → show blackout
+screen.blit(blackout, (0, 0))
+screen.blit(blurred_mask, (0, 0), special_flags=pygame.BLEND_RGBA_SUB)
 
 
     # ----------------------------------------------
