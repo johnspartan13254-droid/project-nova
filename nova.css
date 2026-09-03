@@ -133,7 +133,7 @@ p {
 }
 
 .hero-image {
- postition: absolute;
+ color: cyan;
 }
 
 @keyframes fadeInOut {
