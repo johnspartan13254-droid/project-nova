@@ -1,0 +1,261 @@
+/* =========================================================
+   PROJECT NOVA — Lava → Orange → Cyan Motion Grammar
+   Companion stylesheet
+   Cycle: 2.2s
+   Motion: Attack → Decay/Rise → Sustain/Peak → Release
+   ========================================================= */
+
+:root {
+  /* Core Nova palette */
+  --lava: #ff4500;
+  --orange: #ff8c00;
+  --cyan: #00ffff;
+  --cyan-deep: #008b8b;
+
+  /* Motion timing */
+  --nova-cycle: 2.2s;
+
+  /* Background */
+  --void-top: #050608;
+  --void-mid: #020308;
+  --void: #000000;
+}
+
+
+/* =========================================================
+   STAGE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background-color: #008b8b;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at top,
+      var(--void-top) 0%,
+      var(--void-mid) 40%,
+      var(--void) 100%
+    );
+
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   NOVA ORB
+   ========================================================= */
+
+.orb {
+  color: #00ffff;
+  position: absolute;
+  text-align: justify-content;
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background: var(--lava);
+
+  box-shadow:
+    0 0 25px rgba(255, 69, 0, 0.8),
+    0 0 60px rgba(255, 69, 0, 0.4);
+
+  transform: scale(0.7);
+  opacity: 0.4;
+
+  /* 2.2 seconds × 4 ADSR phases */
+  --phase-duration: 2.2s;
+  --nova-cycle: 8.8s;
+}
+
+.orb {
+  animation: lavaOrangeCyan var(--nova-cycle) infinite;
+}
+
+
+/* =========================================================
+   ADSR MOTION CYCLE
+
+   0%   — ATTACK / Ignition
+   25%  — DECAY / Rise
+   50%  — SUSTAIN / Resonance Peak
+   75%  — RELEASE / Cyan Dissipation
+   100% — Return / Re-ignition
+   ========================================================= */
+
+@keyframes lavaOrangeCyan {
+
+  /* -------------------------------------------------------
+     ATTACK — Ignition
+     Lava enters from a compressed, low-energy state.
+     ------------------------------------------------------- */
+
+  0% {
+    background: var(--lava);
+
+    transform:
+      scale(0.7)
+      translateY(10px);
+
+    opacity: 0.4;
+
+    box-shadow:
+      0 0 15px rgba(255, 69, 0, 0.7),
+      0 0 40px rgba(255, 69, 0, 0.3);
+
+    animation-timing-function:
+      cubic-bezier(0.42, 0, 1, 1);
+  }
+
+
+  /* -------------------------------------------------------
+     DECAY / RISE
+     Lava transitions into orange and reaches full form.
+     ------------------------------------------------------- */
+
+  25% {
+    background: var(--orange);
+
+    transform:
+      scale(1)
+      translateY(0);
+
+    opacity: 0.8;
+
+    box-shadow:
+      0 0 25px rgba(255, 140, 0, 0.9),
+      0 0 70px rgba(255, 140, 0, 0.5);
+
+    animation-timing-function:
+      linear;
+  }
+
+
+  /* -------------------------------------------------------
+     SUSTAIN — Resonance Peak
+     Cyan appears inside the orange field.
+     Maximum scale, luminosity, and resonance.
+     ------------------------------------------------------- */
+
+  50% {
+    background:
+      radial-gradient(
+        circle,
+        var(--cyan) 0%,
+        var(--orange) 40%,
+        var(--orange) 70%,
+        var(--void) 100%
+      );
+
+    transform:
+      scale(1.15)
+      translateY(-6px);
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 35px rgba(0, 255, 255, 1),
+      0 0 90px rgba(255, 140, 0, 0.9);
+
+    animation-timing-function:
+      cubic-bezier(0, 0, 0.58, 1);
+  }
+
+
+  /* -------------------------------------------------------
+     RELEASE — Cyan Dissipation
+     Orange energy falls away while deep cyan remains.
+     ------------------------------------------------------- */
+
+  75% {
+    background:
+      radial-gradient(
+        circle,
+        var(--cyan-deep) 0%,
+        var(--void) 70%
+      );
+
+    transform:
+      scale(0.95)
+      translateY(4px);
+
+    opacity: 0.7;
+
+    box-shadow:
+      0 0 25px rgba(0, 139, 139, 0.8),
+      0 0 60px rgba(0, 139, 139, 0.4);
+
+    animation-timing-function:
+      cubic-bezier(0, 0, 0.2, 1);
+  }
+
+
+  /* -------------------------------------------------------
+     RETURN — Re-ignition
+     Crossfade back into the beginning of the next cycle.
+     ------------------------------------------------------- */
+
+  100% {
+    background: var(--lava);
+
+    transform:
+      scale(0.7)
+      translateY(10px);
+
+    opacity: 0.4;
+
+    box-shadow:
+      0 0 15px rgba(255, 69, 0, 0.7),
+      0 0 40px rgba(255, 69, 0, 0.3);
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .nova-orb {
+    animation: none;
+
+    transform: scale(1);
+    opacity: 1;
+
+    background:
+      radial-gradient(
+        circle,
+        var(--cyan) 0%,
+        var(--orange) 42%,
+        var(--lava) 72%,
+        var(--void) 100%
+      );
+
+    box-shadow:
+      0 0 30px rgba(0, 255, 255, 0.7),
+      0 0 70px rgba(255, 140, 0, 0.6);
+  }
+}
