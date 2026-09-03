@@ -132,7 +132,7 @@ p {
   animation: fadeInOut 4s ease forwards;
 }
 
-.nova-hero-image {
+.hero-image {
  postition: absolute;
 }
 
